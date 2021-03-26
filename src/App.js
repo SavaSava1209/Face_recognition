@@ -71,7 +71,7 @@ class App extends Component {
 
   onButtonChange = (event) => {    
     this.setState({ imageUrl: this.state.input })
-
+    if (this.state.input) {
       fetch('https://pacific-dawn-06402.herokuapp.com/imageUrl', {
         method: 'post',
         headers: { 'Content-Type': 'application/json'},
@@ -97,7 +97,9 @@ class App extends Component {
         }
         this.displayBox(this.createFaceBox(response))
       })        
-      .catch(err => console.log('nooo'))           
+      .catch(err => console.log('nooo'))    
+    }
+             
   }
 
   onRouteChange = (route) => {
